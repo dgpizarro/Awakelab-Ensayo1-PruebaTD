@@ -16,8 +16,16 @@
         <property name="dataSource" ref="ds"></property>
     </bean>
     
-<!--      <bean id="AccidenteDAO" class="cl.awakelab.nmd.DAO.AccidenteDAO"> -->
-<!--             <property name="template" ref="jt"></property> -->
-<!--     </bean> -->
+     <bean id="AyudasDAO" class="cl.awakelab.ensayo1.DAO.AyudasDAO">
+            <property name="template" ref="jt"></property>
+    </bean>
+    
+     <bean id="BeneficiariosDAO" class="cl.awakelab.ensayo1.DAO.BeneficiariosDAO">
+            <property name="template" ref="jt"></property>
+    </bean>
+    
+     <bean id="CiudadesDAO" class="cl.awakelab.ensayo1.DAO.CiudadesDAO">
+            <property name="template" ref="jt"></property>
+    </bean>
 		
 </beans>
