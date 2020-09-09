@@ -24,8 +24,5 @@
             <property name="template" ref="jt"></property>
     </bean>
     
-     <bean id="CiudadesDAO" class="cl.awakelab.ensayo1.DAO.CiudadesDAO">
-            <property name="template" ref="jt"></property>
-    </bean>
 		
 </beans>

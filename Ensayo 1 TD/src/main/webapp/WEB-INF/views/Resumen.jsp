@@ -67,7 +67,7 @@
      </div>
      
      <div class="col-4 cont-text-pag" id="cuatro">
-            <form:form action="${pageContext.request.contextPath}/agregarAyuda.html" method="POST" class="formContacto">
+            <form:form action="${pageContext.request.contextPath}/agregarAyuda" method="POST" class="formContacto">
                                           
                 <span>Beneficiario</span>
                 <form:select path="beneficiario.beneficiarioid" class="listadoDestinatarios" required="true" style="width: 100% !important; font-size: 1em !important;">
@@ -78,7 +78,7 @@
 
                 <span>Monto</span>
                 <br>
-                <form:input path="monto" required="true" placeholder="$0"/>
+                <form:input type="number" path="monto" required="true" placeholder="$0" min="0" />
                 <br>
                 
                 <span>Motivo</span>
@@ -102,6 +102,17 @@
         </div>
    </div>
 
+    <div id="dialog3" style="display: none;" >
+       <div style="display:flex; ">
+            <div style="width: 20%; margin: auto;  font-size: 3em;">
+                <span> <i class="fas fa-exclamation-triangle"></i></span>
+            </div>
+            <div style="width: 77%; margin: auto; text-align: center;">
+                <span>¡Ocurrió un problema en la transacción!</span>
+            </div>
+        </div>
+   </div>
+
 </main>
 
 <script type="text/javascript">
@@ -114,9 +125,19 @@ $(document).ready(function () {
         buttons: [{ text: "OK", click: function() { $( this ).dialog( "close" );} } ]
     });
     
+    $("#dialog3").css('display','block');  
+    $( "#dialog3" ).dialog({
+        closeText: "", modal: true, autoOpen: false, draggable: false, resizable: false,
+        minHeight: 0, dialogClass: "chica",
+        buttons: [{ text: "OK", click: function() { $( this ).dialog( "close" );} } ]
+    });
+    
     var alerta = $("#alerta").val();
-    if (alerta === "open") {
+    if (alerta === "ok") {
         $("#dialog2").dialog("open");
+   }
+    if (alerta === "wrong") {
+        $("#dialog3").dialog("open");
    }
     
     $('#tabla1').DataTable({
